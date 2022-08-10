@@ -1,7 +1,7 @@
 {
-  "name": "project-name",
+  "name": "@carpenjk/hero",
   "version": "1.0.0",
-  "description": "This a description",
+  "description": "A react hero component",
   "main": "lib/index.js",
   "scripts": {
     "prebuild": "rimraf lib",
@@ -11,18 +11,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/carpenjk/project-name.git"
+    "url": "git+https://github.com/carpenjk/hero.git"
   },
   "keywords": [
-    "keyword1",
-    "keyword2"
+    "hero",
+    "image"
   ],
   "author": "Jeremy Carpenter",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/carpenjk/project-name/issues"
+    "url": "https://github.com/carpenjk/hero/issues"
   },
-  "homepage": "https://github.com/carpenjk/project-name#readme",
+  "homepage": "https://github.com/carpenjk/hero#readme",
   "devDependencies": {
     "@babel/cli": "^7.18.10",
     "@babel/core": "^7.18.10",
@@ -38,14 +38,15 @@
     "rimraf": "^3.0.2"
   },
   "dependencies": {
-    "styled-components": "^5.1.1",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "styled-components": "^5.1.1"
   },
   "peerDependencies": {
-    "styled-components": "^5.1.1",
+    "@carpenjk/prop-x": "^1.0.2",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "styled-components": "^5.1.1"
   },
   "publishConfig": {
     "access": "public"
