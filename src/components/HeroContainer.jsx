@@ -3,14 +3,15 @@ import styled from 'styled-components'
 import { getHeight, getWidth } from '@carpenjk/themeweaver'
 import { getProp } from '@carpenjk/prop-x/css'
 import HeroBanner from './heroBanner/HeroBanner'
+import { BackgroundImage } from '@carpenjk/images'
 
 const StyledHeroContainer = styled.div`
   position: ${getProp('position')};
+  top: ${getProp('offsetTop', '0')};
   left: 0;
   right: 0;
   overflow-y: hidden;
   overflow-x: hidden;
-  top: ${getProp('offsetTop', '0')};
   width: ${getWidth({}, '100%')};
   height: ${getHeight({}, '100%')};
 `
@@ -28,7 +29,7 @@ const HeroContainer = (props) => {
   const mergedTw = { ...DEFAULT_TW, ...tw }
   return (
     <StyledHeroContainer {...remProps} tw={mergedTw}>
-      {image}
+      <BackgroundImage {...image}/>
       <HeroBanner
         tw={{ ...mergedTw, semKey: 'heroBanner' }}
         bannerPos={bannerPos}

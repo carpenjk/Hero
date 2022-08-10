@@ -15,28 +15,28 @@
 export const getNonStaticPosProps = (posObj) => {
   if (!posObj) {
     // use default positioning
-    return undefined;
+    return undefined
   }
 
-  const { vertical, horizontal, ...pos } = posObj || {};
-  function getCenterProps() {
+  const { vertical, horizontal, ...pos } = posObj || {}
+  function getCenterProps () {
     if (vertical && horizontal) {
-      return { left: '50%', top: '50%', transform: 'translate(-50%, -50%)' };
+      return { left: '50%', top: '50%', transform: 'translate(-50%, -50%)' }
     }
     if (vertical) {
-      return { top: '50%', transform: 'translateY(-50%)' };
+      return { top: '50%', transform: 'translateY(-50%)' }
     }
     if (horizontal) {
-      return { left: '50%', transform: 'translateX(-50%)' };
+      return { left: '50%', transform: 'translateX(-50%)' }
     }
   }
   if (vertical && horizontal) {
     // positions don't apply
-    return getCenterProps();
+    return getCenterProps()
   }
   const positions = Object.keys(pos).reduce(
     (obj, k) => (typeof pos[k] !== 'function' ? { ...obj, [k]: pos[k] } : obj),
     {}
-  );
-  return { ...positions, ...getCenterProps() };
-};
+  )
+  return { ...positions, ...getCenterProps() }
+}
