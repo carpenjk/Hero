@@ -1,19 +1,19 @@
-import { useMemo, useRef } from 'react';
-import styled from 'styled-components';
-import { unwindProps } from '@carpenjk/prop-x';
-import { breakpoint, getProp } from '@carpenjk/prop-x/css';
-import useWindowSize from '@carpenjk/prop-x/useWindowSize';
+import React, { useMemo, useRef } from 'react'
+import styled from 'styled-components'
+import { unwindProps } from '@carpenjk/prop-x'
+import { breakpoint, getProp } from '@carpenjk/prop-x/css'
+import useWindowSize from '@carpenjk/prop-x/useWindowSize'
 import {
   getHeight,
   getMaxHeight,
   getMaxWidth,
   getMinHeight,
   getMinWidth,
-  getWidth,
-} from '@carpenjk/themeweaver';
-import { useIsoLayoutEffect } from '@carpenjk/hooks';
-import { getNonStaticPosProps } from './utils';
-import BannerBackground from './BannerBackground';
+  getWidth
+} from '@carpenjk/themeweaver'
+import { useIsoLayoutEffect } from '@carpenjk/hooks'
+import { getNonStaticPosProps } from './utils'
+import BannerBackground from './BannerBackground'
 
 const StyledBanner = styled.div`
   position: absolute;
@@ -46,7 +46,7 @@ const StyledBanner = styled.div`
     min-height: ${getMinHeight({}, '0')};
     max-height: ${getMaxHeight({}, 'none')};
   `}
-`;
+`
 
 StyledBanner.defaultProps = {
   position: ['relative', 'absolute'],
@@ -58,13 +58,13 @@ StyledBanner.defaultProps = {
   marginTop: ['auto', '0'],
   marginRight: ['auto', '0'],
   marginBottom: ['auto', '0'],
-  marginLeft: ['auto', '0'],
-};
+  marginLeft: ['auto', '0']
+}
 
 const DEFAULT_TW = {
   semKey: 'heroBanner',
-  variant: 'default',
-};
+  variant: 'default'
+}
 // @param bannerPos = {
 // top: <value>,
 // right: <value>,
@@ -75,42 +75,42 @@ const DEFAULT_TW = {
 // }
 //  vertical and horizontal voids top/bottom and left/right positions respectively
 const HeroBanner = (props) => {
-  const { tw, children, backgroundComponent, bannerPos, ...remProps } = props;
-  const mergedTw = useMemo(() => ({ ...DEFAULT_TW, ...tw }), [tw]);
+  const { tw, children, backgroundComponent, bannerPos, ...remProps } = props
+  const mergedTw = useMemo(() => ({ ...DEFAULT_TW, ...tw }), [tw])
   const posProps = unwindProps({ bannerPos }).map((val) =>
     getNonStaticPosProps(val.bannerPos)
-  );
+  )
 
-  const windowSize = useWindowSize();
-  const bannerRef = useRef(null);
+  const windowSize = useWindowSize()
+  const bannerRef = useRef(null)
   const Background = useMemo(() => backgroundComponent || BannerBackground, [
-    backgroundComponent,
-  ]);
+    backgroundComponent
+  ])
 
   useIsoLayoutEffect(() => {
     if (!bannerRef || !bannerRef.current) {
-      return;
+      return
     }
-    const { top, right, bottom, left } = bannerPos || {};
-    function getPos(fn) {
+    const { top, right, bottom, left } = bannerPos || {}
+    function getPos (fn) {
       return fn({
         windowWidth: windowSize.width,
-        windowHeight: windowSize.height,
-      });
+        windowHeight: windowSize.height
+      })
     }
     if (top && typeof top === 'function') {
-      bannerRef.current.style.top = `${getPos(top)}px`;
+      bannerRef.current.style.top = `${getPos(top)}px`
     }
     if (right && typeof top === 'function') {
-      bannerRef.current.style.right = `${getPos(right)}px`;
+      bannerRef.current.style.right = `${getPos(right)}px`
     }
     if (bottom && typeof top === 'function') {
-      bannerRef.current.style.bottom = `${getPos(bottom)}px`;
+      bannerRef.current.style.bottom = `${getPos(bottom)}px`
     }
     if (left && typeof top === 'function') {
-      bannerRef.current.style.left = `${getPos(left)}px`;
+      bannerRef.current.style.left = `${getPos(left)}px`
     }
-  }, [windowSize.width, windowSize.height, bannerPos]);
+  }, [windowSize.width, windowSize.height, bannerPos])
 
   return (
     <StyledBanner
@@ -123,7 +123,7 @@ const HeroBanner = (props) => {
       <Background />
       {children}
     </StyledBanner>
-  );
-};
+  )
+}
 
-export default HeroBanner;
+export default HeroBanner

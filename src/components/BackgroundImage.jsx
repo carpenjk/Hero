@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
 const StyledBackgroundImage = styled.div`
   position: absolute;
@@ -14,11 +15,11 @@ const StyledBackgroundImage = styled.div`
     height: 100%;
     object-fit: cover;
   }
-`;
+`
 const HeroImage = ({ alt, ...props }) => (
   <StyledBackgroundImage>
     <img {...props} alt={alt} />
   </StyledBackgroundImage>
-);
+)
 
-export default HeroImage;
+export default HeroImage

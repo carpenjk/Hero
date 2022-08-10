@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
 const StyledBackground = styled.div`
   content: '';
@@ -12,8 +13,8 @@ const StyledBackground = styled.div`
   bottom: 0;
   right: 0;
   z-index: -1;
-`;
+`
 
-const BannerBackground = () => <StyledBackground />;
+const BannerBackground = () => <StyledBackground />
 
-export default BannerBackground;
+export default BannerBackground

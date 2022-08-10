@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
 const StyledWrapper = styled.div`
   margin: 0;
@@ -17,7 +18,7 @@ const StyledWrapper = styled.div`
     color: ${({ theme }) => theme.colors.bannerText};
     letter-spacing: 0.05em;
   }
-`;
+`
 
 const HomeBannerLayout = () => (
   <StyledWrapper>
@@ -26,6 +27,6 @@ const HomeBannerLayout = () => (
       Find rental properties near the things that make living most enjoyable.
     </h2>
   </StyledWrapper>
-);
+)
 
-export default HomeBannerLayout;
+export default HomeBannerLayout

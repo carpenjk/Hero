@@ -1,5 +1,6 @@
-import { condition } from '@carpenjk/prop-x';
-import styled from 'styled-components';
+import React from 'react'
+import { condition } from '@carpenjk/prop-x'
+import styled from 'styled-components'
 
 const StyledOuter = styled.div`
   position: absolute;
@@ -16,9 +17,9 @@ const StyledOuter = styled.div`
   ${condition('verticalCenter')`
     justify-content: center;
   `}
-`;
+`
 const OuterContainer = ({ children, ...props }) => (
   <StyledOuter {...props}>{children}</StyledOuter>
-);
+)
 
-export default OuterContainer;
+export default OuterContainer

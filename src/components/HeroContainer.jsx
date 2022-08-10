@@ -1,7 +1,8 @@
-import styled from 'styled-components';
-import { getHeight, getWidth } from '@carpenjk/themeweaver';
-import { getProp } from '@carpenjk/prop-x/css';
-import HeroBanner from './heroBanner/HeroBanner';
+import React from 'react'
+import styled from 'styled-components'
+import { getHeight, getWidth } from '@carpenjk/themeweaver'
+import { getProp } from '@carpenjk/prop-x/css'
+import HeroBanner from './heroBanner/HeroBanner'
 
 const StyledHeroContainer = styled.div`
   position: ${getProp('position')};
@@ -12,19 +13,19 @@ const StyledHeroContainer = styled.div`
   top: ${getProp('offsetTop', '0')};
   width: ${getWidth({}, '100%')};
   height: ${getHeight({}, '100%')};
-`;
+`
 
 StyledHeroContainer.defaultProps = {
   position: 'relative',
   offsetTop: '0',
-  backgroundImage: 'none',
-};
+  backgroundImage: 'none'
+}
 
-const DEFAULT_TW = { semKey: 'hero' };
+const DEFAULT_TW = { semKey: 'hero' }
 
 const HeroContainer = (props) => {
-  const { image, tw, bannerLayout, bannerPos, ...remProps } = props;
-  const mergedTw = { ...DEFAULT_TW, ...tw };
+  const { image, tw, bannerLayout, bannerPos, ...remProps } = props
+  const mergedTw = { ...DEFAULT_TW, ...tw }
   return (
     <StyledHeroContainer {...remProps} tw={mergedTw}>
       {image}
@@ -35,7 +36,7 @@ const HeroContainer = (props) => {
         {bannerLayout}
       </HeroBanner>
     </StyledHeroContainer>
-  );
-};
+  )
+}
 
-export default HeroContainer;
+export default HeroContainer
