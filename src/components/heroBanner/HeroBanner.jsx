@@ -2,7 +2,6 @@ import React, { useMemo, useRef } from 'react'
 import styled from 'styled-components'
 import { unwindProps } from '@carpenjk/prop-x'
 import { breakpoint, getProp } from '@carpenjk/prop-x/css'
-import useWindowSize from '@carpenjk/prop-x/useWindowSize'
 import {
   getHeight,
   getMaxHeight,
@@ -11,7 +10,7 @@ import {
   getMinWidth,
   getWidth
 } from '@carpenjk/themeweaver'
-import { useIsoLayoutEffect } from '@carpenjk/hooks'
+import { useIsoLayoutEffect, useWindowSize } from '@carpenjk/hooks'
 import { getNonStaticPosProps } from './utils'
 import BannerBackground from './BannerBackground'
 
